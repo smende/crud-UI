@@ -1,0 +1,14 @@
+
+.smallFont{
+    font-size: 12px;
+}
+.userIconDiv{
+    width:40px;
+}
+.userIcon{
+    font-size: 25px;
+}
+.options{
+    display: flex;
+    margin-left: auto;
+}

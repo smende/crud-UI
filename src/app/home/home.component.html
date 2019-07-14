@@ -1,0 +1,49 @@
+<div class="container">
+        <div class=" card">
+            <div class="card-body">
+                    <mat-list>
+                            <h6 mat-subheader>Users ({{allUsers.length}})</h6>
+                            <mat-list-item *ngFor="let user of allUsers">
+                                <div class="userIconDiv">
+                                        <span class="fas fa-user userIcon"></span>
+                                </div>
+                                <div>
+                                        <h6 mat-line>{{user.firstName}} {{user.lastName}}</h6>
+                                        <p mat-line class="subNote"> {{user.age}} years </p>
+                                </div>
+                                <div class="options">
+                                        <span class="fas fa-pen pointer"></span>
+                                        <span style="width:10px"></span>
+                                        <span class="fas fa-trash pointer text-danger" (click)="deleteUser(user?.id)"></span>
+                                </div>
+                            </mat-list-item>            
+                    </mat-list>
+                </div>
+        </div>
+
+      <div class="card newUserForm">
+    
+        <div class="card-body">
+            <form (submit)="createUser(newUser)" #newUser="ngForm">
+    
+                <div class="form-group">
+                    <label>First Name *</label>
+                    <input name="firstName" type="text" class="form-control" [(ngModel)]="user.firstName" required>
+                </div>
+                <div class="form-group">      
+                    <label>Last Name *</label>
+                    <input name="lastName" class="form-control" type="text" [(ngModel)]="user.lastName" required>
+                </div>
+                <div class="form-group">
+                    <label>Age *</label>
+                    <input name="age" type="number" class="form-control" [(ngModel)]="user.age" required>
+                </div>
+                <button class="btn btn-sm btn-primary" type ="submit" [disabled]="!newUser.valid">create User</button>
+                
+              </form>
+    
+        </div>
+      </div>
+    
+
+</div>
